@@ -14,6 +14,37 @@
   },
   {
     "type": "container",
+    "title": "Consul",
+    "description": "Highly available and distributed service discovery and KV store",
+    "categories": ["service-discovery"],
+    "platform": "linux",
+    "logo": "https://cdn.rawgit.com/docker-library/docs/8adb88e1e328c244711742f65319ed4064cff9a2/consul/logo.svg",
+    "image": "consul:latest",
+    "env": [
+      {
+        "name": "CONSUL_LOCAL_CONFIG",
+        "label": "Configuration JSON"
+      },
+      {
+        "name": "CONSUL_CLIENT_INTERFACE",
+        "label": "Client interface",
+        "description": "e.g.: eth0"
+      },
+      {
+        "name": "CONSUL_BIND_INTERFACE",
+        "label": "Bind interface",
+        "description": "e.g.: eth0"
+      }
+    ],
+    "network": "host",
+    "ports": [
+      "8500/tcp",
+      "8600/tcp"
+    ],
+    "volumes": ["/consul/data", "/consul/config"]
+  },
+  {
+    "type": "container",
     "title": "Nginx",
     "description": "High performance web server",
     "categories": ["webserver"],
